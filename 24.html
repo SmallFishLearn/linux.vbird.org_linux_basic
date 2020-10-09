@@ -312,7 +312,7 @@
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">24.1.2 更新核心的目的</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">除了BIOS (或UEFI)之外，核心是作业系统中最早被载入到记忆体的咚咚，他包含了所有可以让硬体与软体工作的资讯，所以，如果没有搞定核心的话，那么你的系统肯定会有点小问题！</font><font style="vertical-align: inherit;">好了，那么是不是将『</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所有目前核心有支援的东西都给他编译进去我的核心中，那就可以支援目前所有的硬体与可执行的工作啦！</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">』！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">除了BIOS (或UEFI)之外，核心是作业系统中最早被载入到记忆体的咚咚，他包含了所有可以让硬体与软件工作的资讯，所以，如果没有搞定核心的话，那么你的系统肯定会有点小问题！</font><font style="vertical-align: inherit;">好了，那么是不是将『</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所有目前核心有支援的东西都给他编译进去我的核心中，那就可以支援目前所有的硬体与可执行的工作啦！</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">』！</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这话说的是没错啦，但是你是否曾经看过一个为了怕自己今天出门会口渴、会饿、会冷、会热、会被车撞、 会摔跤、会被性骚扰，而在自己的大包包里面放了大瓶矿泉水、便当、厚外套、短裤、防撞钢梁、止滑垫、 电击棒....等一大堆东西，结果却累死在半路上的案例吗？</font><font style="vertical-align: inherit;">当然有！</font><font style="vertical-align: inherit;">但是很少啦！</font><font style="vertical-align: inherit;">我相信不太有人会这样做！</font><font style="vertical-align: inherit;">(会这么做的人通常都已经在医院了～) 取而代之的是会看一下天气，冷了就只带外套， 热了就只带短衣、如果穿的漂亮一点又预计晚点回家就多带个电击棒、 出远门到没有便利商店的地方才多带矿泉水....</font></font></p>
 
@@ -340,7 +340,7 @@
 		</font></font><br><br></li>
 
 		<li><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其他需求(如嵌入式系统)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-		就是你需要特殊的环境需求时，就得自行设计你的核心啰！</font><font style="vertical-align: inherit;">(像是一些商业的套装软体系统，由于需要较为小而美的作业系统，那么他们的核心就需要更简洁有力了！)</font></font></li>
+		就是你需要特殊的环境需求时，就得自行设计你的核心啰！</font><font style="vertical-align: inherit;">(像是一些商业的套装软件系统，由于需要较为小而美的作业系统，那么他们的核心就需要更简洁有力了！)</font></font></li>
 		</ul>
 
 		<fieldset class="vbirdface"><legend style="font-family: serif; font-size:12pt; color: darkblue;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tips</font></font></legend><img src="http://linux.vbird.org/images/vbird_face.gif" alt="鸟哥的图示" title="鸟哥的图示" style="float: right;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">		话说，2014 年鸟哥为了要搞定banana pi (一种单版电脑，或者可以称为手机的硬体拿来作Linux 安装的硬体) 的CPU 最高时脉限制， 因为该限制是直接写入到Linux核心当中的，这时就只好针对该硬体的Linux 核心，修改不到10 行的程式码之后，重新编译！</font><font style="vertical-align: inherit;">才能将原本限制到900MHz 的时脉提升到1.2GHz 哩！
@@ -359,7 +359,7 @@
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">24.1.3 核心的版本</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">核心的版本问题，我们在</font></font><a href="http://linux.vbird.org/linux_basic/0110whatislinux.php#torvalds_team"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第一章</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已经谈论过，目前CentOS 7使用的3.10.x版本为长期维护版本，不过理论上我们也可以升级到后续的主线版本上面！</font><font style="vertical-align: inherit;">不会像以前2.6.x只能升级到2.6.x的后续版本，而不能改成其他主线版本。</font><font style="vertical-align: inherit;">不过这也只是『理论上』而已，因为目前许多的软体依旧与核心版本有关，例如那个虚拟化软体qemu之类的，与核心版本之间是有搭配性的关系的，所以，除非你要一口气连同核心相依的软体通通升级，否则最好使用长期维护版本的最新版来处理较佳。</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">核心的版本问题，我们在</font></font><a href="http://linux.vbird.org/linux_basic/0110whatislinux.php#torvalds_team"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第一章</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已经谈论过，目前CentOS 7使用的3.10.x版本为长期维护版本，不过理论上我们也可以升级到后续的主线版本上面！</font><font style="vertical-align: inherit;">不会像以前2.6.x只能升级到2.6.x的后续版本，而不能改成其他主线版本。</font><font style="vertical-align: inherit;">不过这也只是『理论上』而已，因为目前许多的软件依旧与核心版本有关，例如那个虚拟化软件qemu之类的，与核心版本之间是有搭配性的关系的，所以，除非你要一口气连同核心相依的软件通通升级，否则最好使用长期维护版本的最新版来处理较佳。</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">举例来说，CentOS 7 使用的是3.10.0 这个长期版本，而目前(2015/09) 这个3.10 长期版本，最新的版本为3.10.89，意思是说， 你最好是拿3.10.89 来作为核心升级的依据，而不是拿最新的4.2.1 来升级的意思。</font></font></p>
 
@@ -527,7 +527,7 @@
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接下来要开始调整啰！</font><font style="vertical-align: inherit;">那么如何选择呢？</font><font style="vertical-align: inherit;">以make menuconfig 来说，出现的画面会有点像这样：</font></font></p>
 
-		<fieldset class="vbirdface"><legend style="font-family: serif; font-size:12pt; color: darkblue;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tips</font></font></legend><img src="http://linux.vbird.org/images/vbird_face.gif" alt="鸟哥的图示" title="鸟哥的图示" style="float: right;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">		注意，你可能会被要求安装好多软体，请自行使用yum 来安装喔！</font><font style="vertical-align: inherit;">这里不再介绍了！</font><font style="vertical-align: inherit;">另外：『不要再使用make mrproper 』喔！</font><font style="vertical-align: inherit;">因为我们已经复制了.config 啊！</font><font style="vertical-align: inherit;">使用make mrproper 会将.config 删除喔！
+		<fieldset class="vbirdface"><legend style="font-family: serif; font-size:12pt; color: darkblue;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tips</font></font></legend><img src="http://linux.vbird.org/images/vbird_face.gif" alt="鸟哥的图示" title="鸟哥的图示" style="float: right;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">		注意，你可能会被要求安装好多软件，请自行使用yum 来安装喔！</font><font style="vertical-align: inherit;">这里不再介绍了！</font><font style="vertical-align: inherit;">另外：『不要再使用make mrproper 』喔！</font><font style="vertical-align: inherit;">因为我们已经复制了.config 啊！</font><font style="vertical-align: inherit;">使用make mrproper 会将.config 删除喔！
 		</font></font></fieldset><br>
 
 	<a id="fig24.2.1"></a>
@@ -710,7 +710,7 @@
 &lt; </font></font><span class="term_write"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">M</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> &gt; IA32 a.out support</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 [*] x32 ABI for 64-bit mode</font></font><font></font>
 <span class="term_say"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"># 因为我们的CentOS 已经是纯64 位元的环境！</font><font style="vertical-align: inherit;">所以个人建议这里还是要选择模拟32 位元的功能！</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-# 不然若有些比较旧的软体，恐怕会无法被你的系统所执行喔！</font></font></span>
+# 不然若有些比较旧的软件，恐怕会无法被你的系统所执行喔！</font></font></span>
 </pre></td></tr></tbody></table>
 
 		<a id="networking"></a>
@@ -1013,7 +1013,7 @@ lrwxrwxrwx. 1 root root 30 Oct 20 14:27 source -&gt; /usr/src/kernels/linux-3.10
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">比较有趣的除了那两个连结档之外，还有那个modules.dep 档案也挺有趣的， 那个档案是记录了核心模组的相依属性的地方，依据该档案，我们可以简单的使用modprobe 这个指令来载入模组呢！</font><font style="vertical-align: inherit;">至于核心原始码提供的标头档，在上面的案例当中， 则是放置到/usr/src/kernels/linux-3.10.89/include/ 目录中，当然就是藉由build/source 这两个连结档案来取得目录所在的啦！</font><font style="vertical-align: inherit;">^_^</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于核心模组的编译其实与核心原本的原始码有点关系的，因此如果你需要重新编译模组时，那除了make, gcc等主要的编译软体工具外，</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你还需要的就是kernel-devel这个软体</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">！</font><font style="vertical-align: inherit;">记得一定要安装喔！</font><font style="vertical-align: inherit;">而如果你想要在预设的核心底下新增模组的话，那么就得要找到kernel的SRPM档案了！</font><font style="vertical-align: inherit;">将该档案给他安装，并且取得source code后，才能够顺利的编译喔！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于核心模组的编译其实与核心原本的原始码有点关系的，因此如果你需要重新编译模组时，那除了make, gcc等主要的编译软件工具外，</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你还需要的就是kernel-devel这个软件</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">！</font><font style="vertical-align: inherit;">记得一定要安装喔！</font><font style="vertical-align: inherit;">而如果你想要在预设的核心底下新增模组的话，那么就得要找到kernel的SRPM档案了！</font><font style="vertical-align: inherit;">将该档案给他安装，并且取得source code后，才能够顺利的编译喔！</font></font></p>
 	<br></div><br>
 
 	<a id="module_compile"></a>
@@ -1158,7 +1158,7 @@ Wrote: /root/rpmbuild/RPMS/x86_64/kernel-ml-tools-libs-4.2.3-1.el7.centos.x86_64
 Wrote: /root/rpmbuild/RPMS/x86_64/kernel-ml-tools-libs-devel-4.2.3-1.el7.centos.x86_64.rpm</font></font><font></font>
 </pre></td></tr></tbody></table>
 
-	<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如上表最后的状态，你会发现竟然已经有kernel-ml 的软体包产生了！</font><font style="vertical-align: inherit;">接下来你也不需要像手动安装核心一样，得要一个一个项目移动到正确的位置去， 只要使用yum install 新的核心版本，就会有4.2.3 版的核心在你的CentOS 7.x 当中了耶！</font><font style="vertical-align: inherit;">相当神奇！</font></font></p>
+	<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如上表最后的状态，你会发现竟然已经有kernel-ml 的软件包产生了！</font><font style="vertical-align: inherit;">接下来你也不需要像手动安装核心一样，得要一个一个项目移动到正确的位置去， 只要使用yum install 新的核心版本，就会有4.2.3 版的核心在你的CentOS 7.x 当中了耶！</font><font style="vertical-align: inherit;">相当神奇！</font></font></p>
 
 <table class="term"><tbody><tr><td class="term"><pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">yum install /root/rpmbuild/RPMS/x86_64/kernel-ml-4.2.3-1.el7.centos.x86_64.rpm</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
 [root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">reboot</font></font></span><font></font>

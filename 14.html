@@ -230,15 +230,15 @@
 		<li><a href="#quota_manage"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.1.7 XFS quota 的管理与额外指令对照表</font></font></a></li>
 		<li><a href="#quota_nochange"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.1.8 不更动既有系统的Quota 实例</font></font></a></li>
 	</ul></li>
-	<li><a href="#raid"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2 软体磁碟阵列(Software RAID)</font></font></a>
+	<li><a href="#raid"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2 软件磁碟阵列(Software RAID)</font></font></a>
 	<ul>
 		<li><a href="#raid_what"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.1什么是RAID</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><a href="#raid0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID-0</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , </font></font><a href="#raid1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID-1</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ,
 			 </font></font><a href="#raid0_1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID1+0</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , </font></font><a href="#raid5"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID-5</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , </font></font><a href="#spare"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Spare disk</font></font></a></li>
 		<li><a href="#raid_so_ha"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.2 software, hardware RAID</font></font></a></li>
-		<li><a href="#raid_setup"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.3软体磁碟阵列的设定</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><a href="#mdadm_create"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mdadm --create</font></font></a></li>
+		<li><a href="#raid_setup"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.3软件磁碟阵列的设定</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><a href="#mdadm_create"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mdadm --create</font></font></a></li>
 		<li><a href="#raid_rescue"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.4模拟RAID错误的救援模式</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><a href="#mdadm_manage"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mdadm --manage</font></font></a></li>
 		<li><a href="#raid_auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.5 开机自动启动RAID 并自动挂载</font></font></a></li>
-		<li><a href="#raid_stop"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.6 关闭软体RAID(重要！)</font></font></a></li>
+		<li><a href="#raid_stop"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.6 关闭软件RAID(重要！)</font></font></a></li>
 	</ul></li>
 	<li><a href="#lvm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.3 逻辑卷轴管理员(Logical Volume Manager)</font></font></a>
 	<ul>
@@ -799,15 +799,15 @@ myquotaproject 500M       </font></font><span class="term_write"><font style="ve
 
 <a id="raid"></a>
 <div class="block1">
-<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2 软体磁碟阵列(Software RAID)</font></font></h2>
+<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2 软件磁碟阵列(Software RAID)</font></font></h2>
 
-	<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在过去鸟哥还年轻的时代，我们能使用的硬碟容量都不大，几十GB 的容量就是大硬碟了！</font><font style="vertical-align: inherit;">但是某些情况下，我们需要很大容量的储存空间， 例如鸟哥在跑的空气品质模式所输出的资料档案一个案例通常需要好几GB ，连续跑个几个案例，磁碟容量就不够用了。</font><font style="vertical-align: inherit;">此时我该如何是好？</font><font style="vertical-align: inherit;">其实可以透过一种储存机制，称为磁碟阵列 (RAID) 的就是了。</font><font style="vertical-align: inherit;">这种机制的功能是什么？</font><font style="vertical-align: inherit;">他有哪些等级？</font><font style="vertical-align: inherit;">什么是硬体、软体磁碟阵列？</font><font style="vertical-align: inherit;">Linux 支援什么样的软体磁碟阵列？</font><font style="vertical-align: inherit;">底下就让我们来谈谈！</font></font></p>
+	<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在过去鸟哥还年轻的时代，我们能使用的硬碟容量都不大，几十GB 的容量就是大硬碟了！</font><font style="vertical-align: inherit;">但是某些情况下，我们需要很大容量的储存空间， 例如鸟哥在跑的空气品质模式所输出的资料档案一个案例通常需要好几GB ，连续跑个几个案例，磁碟容量就不够用了。</font><font style="vertical-align: inherit;">此时我该如何是好？</font><font style="vertical-align: inherit;">其实可以透过一种储存机制，称为磁碟阵列 (RAID) 的就是了。</font><font style="vertical-align: inherit;">这种机制的功能是什么？</font><font style="vertical-align: inherit;">他有哪些等级？</font><font style="vertical-align: inherit;">什么是硬体、软件磁碟阵列？</font><font style="vertical-align: inherit;">Linux 支援什么样的软件磁碟阵列？</font><font style="vertical-align: inherit;">底下就让我们来谈谈！</font></font></p>
 
 	<a id="raid_what"></a>
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.1 什么是RAID</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁碟阵列全名是『 Redundant Arrays of Independent Disks, RAID 』，英翻中的意思为：独立容错式磁碟阵列，旧称为容错式廉价磁碟阵列，反正就称为磁碟阵列即可！</font><font style="vertical-align: inherit;">RAID可以透过一个技术(软体或硬体)，将多个较小的磁碟整合成为一个较大的磁碟装置；而这个较大的磁碟功能可不止是储存而已，他还具有资料保护的功能呢。</font><font style="vertical-align: inherit;">整个RAID由于选择的等级(level)不同，而使得整合后的磁碟具有不同的功能，基本常见的level有这几种(</font></font><a href="#ps2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注2</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> )：</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁碟阵列全名是『 Redundant Arrays of Independent Disks, RAID 』，英翻中的意思为：独立容错式磁碟阵列，旧称为容错式廉价磁碟阵列，反正就称为磁碟阵列即可！</font><font style="vertical-align: inherit;">RAID可以透过一个技术(软件或硬体)，将多个较小的磁碟整合成为一个较大的磁碟装置；而这个较大的磁碟功能可不止是储存而已，他还具有资料保护的功能呢。</font><font style="vertical-align: inherit;">整个RAID由于选择的等级(level)不同，而使得整合后的磁碟具有不同的功能，基本常见的level有这几种(</font></font><a href="#ps2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注2</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> )：</font></font></p>
 
 		<a id="raid0"></a>
 		<ul class="toplist"><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID-0 (等量模式, stripe)：效能最佳</font></font></li></ul>
@@ -834,7 +834,7 @@ myquotaproject 500M       </font></font><span class="term_write"><font style="ve
 	<div style="text-align:center; margin: 0 auto 0 auto; "><img src="images/raid1.gif" alt="RAID-1 的磁碟写入示意图" title="RAID-1 的磁碟写入示意图" style="border: 1px solid black; padding: 10px "></div>
 	<div style="text-align: center;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">图14.2.2、RAID-1 的磁碟写入示意图</font></font></div>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如上图所示，一份资料传送到RAID-1 之后会被分为两股，并分别写入到各个磁碟里头去。</font><font style="vertical-align: inherit;">由于同一份资料会被分别写入到其他不同磁碟，因此如果要写入100MB 时，资料传送到I/O 汇流排后会被复制多份到各个磁碟， 结果就是资料量感觉变大了！</font><font style="vertical-align: inherit;">因此在大量写入RAID-1 的情况下，写入的效能可能会变的非常差(因为我们只有一个南桥啊！)。</font><font style="vertical-align: inherit;">好在如果你使用的是硬体RAID (磁碟阵列卡) 时，磁碟阵列卡会主动的复制一份而不使用系统的I/O 汇流排，效能方面则还可以。</font><font style="vertical-align: inherit;">如果使用软体磁碟阵列，可能效能就不好了。</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如上图所示，一份资料传送到RAID-1 之后会被分为两股，并分别写入到各个磁碟里头去。</font><font style="vertical-align: inherit;">由于同一份资料会被分别写入到其他不同磁碟，因此如果要写入100MB 时，资料传送到I/O 汇流排后会被复制多份到各个磁碟， 结果就是资料量感觉变大了！</font><font style="vertical-align: inherit;">因此在大量写入RAID-1 的情况下，写入的效能可能会变的非常差(因为我们只有一个南桥啊！)。</font><font style="vertical-align: inherit;">好在如果你使用的是硬体RAID (磁碟阵列卡) 时，磁碟阵列卡会主动的复制一份而不使用系统的I/O 汇流排，效能方面则还可以。</font><font style="vertical-align: inherit;">如果使用软件磁碟阵列，可能效能就不好了。</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于两颗磁碟内的资料一模一样，所以任何一颗硬碟损毁时，你的资料还是可以完整的保留下来的！</font><font style="vertical-align: inherit;">所以我们可以说，</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID-1最大的优点大概就在于资料的备份吧！</font><font style="vertical-align: inherit;">不过由于磁碟容量有一半用在备份，因此总容量会是全部磁碟容量的一半而已</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">虽然RAID-1的写入效能不佳，不过读取的效能则还可以啦！</font><font style="vertical-align: inherit;">这是因为资料有两份在不同的磁碟上面，如果多个processes在读取同一笔资料时， RAID会自行取得最佳的读取平衡。</font></font></p>
 
@@ -862,7 +862,7 @@ myquotaproject 500M       </font></font><span class="term_write"><font style="ve
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如上图所示，每个循环写入时，都会有部分的同位检查码(parity)被记录起来，并且记录的同位检查码每次都记录在不同的磁碟，因此，任何一个磁碟损毁时都能够藉由其他磁碟的检查码来重建原本磁碟内的资料喔！</font><font style="vertical-align: inherit;">不过需要注意的是，由于有同位检查码，因此</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID 5的总容量会是整体磁碟数量减一颗。</font><font style="vertical-align: inherit;">以上图为例，原本的3颗磁碟只会剩下(3-1)=2颗磁碟的容量。</font><font style="vertical-align: inherit;">而且当损毁的磁碟数量大于等于两颗时，这整组RAID 5的资料就损毁了。</font><font style="vertical-align: inherit;">因为RAID 5预设仅能支援一颗磁碟的损毁情况</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在读写效能的比较上，读取的效能还不赖！</font><font style="vertical-align: inherit;">与RAID-0 有的比！</font><font style="vertical-align: inherit;">不过写的效能就不见得能够增加很多！</font><font style="vertical-align: inherit;">这是因为要写入RAID 5 的资料还得要经过计算同位检查码(parity) 的关系。</font><font style="vertical-align: inherit;">由于加上这个计算的动作， 所以写入的效能与系统的硬体关系较大！</font><font style="vertical-align: inherit;">尤其当使用软体磁碟阵列时，同位检查码是透过CPU 去计算而非专职的磁碟阵列卡， 因此效能方面还需要评估。</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在读写效能的比较上，读取的效能还不赖！</font><font style="vertical-align: inherit;">与RAID-0 有的比！</font><font style="vertical-align: inherit;">不过写的效能就不见得能够增加很多！</font><font style="vertical-align: inherit;">这是因为要写入RAID 5 的资料还得要经过计算同位检查码(parity) 的关系。</font><font style="vertical-align: inherit;">由于加上这个计算的动作， 所以写入的效能与系统的硬体关系较大！</font><font style="vertical-align: inherit;">尤其当使用软件磁碟阵列时，同位检查码是透过CPU 去计算而非专职的磁碟阵列卡， 因此效能方面还需要评估。</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">另外，由于RAID 5 仅能支援一颗磁碟的损毁，因此近来还有发展出另外一种等级，就是RAID 6 ，这个RAID 6 则使用两颗磁碟的容量作为parity 的储存，因此整体的磁碟容量就会少两颗，但是允许出错的磁碟数量就可以达到两颗了！</font><font style="vertical-align: inherit;">也就是在RAID 6 的情况下，同时两颗磁碟损毁时，资料还是可以救回来！</font></font></p>
 
@@ -885,7 +885,7 @@ myquotaproject 500M       </font></font><span class="term_write"><font style="ve
 		<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">容量：可以让多颗磁碟组合起来，故单一档案系统可以有相当大的容量。</font></font></li>
 		</ol>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">尤其资料的可靠性与完整性更是使用RAID 的考量重点！</font><font style="vertical-align: inherit;">毕竟硬体坏掉换掉就好了，软体资料损毁那可不是闹着玩的！</font><font style="vertical-align: inherit;">所以企业界为何需要大量的RAID 来做为档案系统的硬体基准，现在您有点了解了吧？</font><font style="vertical-align: inherit;">那依据这三个重点，我们来列表看看上面几个重要的RAID 等级各有哪些优点吧！</font><font style="vertical-align: inherit;">假设有n 颗磁碟组成的RAID 设定喔！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">尤其资料的可靠性与完整性更是使用RAID 的考量重点！</font><font style="vertical-align: inherit;">毕竟硬体坏掉换掉就好了，软件资料损毁那可不是闹着玩的！</font><font style="vertical-align: inherit;">所以企业界为何需要大量的RAID 来做为档案系统的硬体基准，现在您有点了解了吧？</font><font style="vertical-align: inherit;">那依据这三个重点，我们来列表看看上面几个重要的RAID 等级各有哪些优点吧！</font><font style="vertical-align: inherit;">假设有n 颗磁碟组成的RAID 设定喔！</font></font></p>
 
 <table class="news" style="width: 95%">
 <tbody><tr class="theader"><td style="width: 20%"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目</font></font></td><td style="width: 16%"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID0</font></font></td><td style="width: 16%"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID1</font></font></td><td style="width: 16%"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID10</font></font></td><td style="width: 16%"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID5</font></font></td><td style="width: 16%"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RAID6</font></font></td></tr>
@@ -911,24 +911,24 @@ myquotaproject 500M       </font></font><span class="term_write"><font style="ve
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.2 software, hardware RAID</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为何磁碟阵列又分为硬体与软体呢？</font><font style="vertical-align: inherit;">所谓的硬体磁碟阵列(hardware RAID) 是透过磁碟阵列卡来达成阵列的目的。</font><font style="vertical-align: inherit;">磁碟阵列卡上面有一块专门的晶片在处理RAID 的任务，因此在效能方面会比较好。</font><font style="vertical-align: inherit;">在很多任务(例如RAID 5 的同位检查码计算) 磁碟阵列并不会重复消耗原本系统的I/O 汇流排，理论上效能会较佳。</font><font style="vertical-align: inherit;">此外目前一般的中高阶磁碟阵列卡都支援热拔插， 亦即在不关机的情况下抽换损坏的磁碟，对于系统的复原与资料的可靠性方面非常的好用。</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为何磁碟阵列又分为硬体与软件呢？</font><font style="vertical-align: inherit;">所谓的硬体磁碟阵列(hardware RAID) 是透过磁碟阵列卡来达成阵列的目的。</font><font style="vertical-align: inherit;">磁碟阵列卡上面有一块专门的晶片在处理RAID 的任务，因此在效能方面会比较好。</font><font style="vertical-align: inherit;">在很多任务(例如RAID 5 的同位检查码计算) 磁碟阵列并不会重复消耗原本系统的I/O 汇流排，理论上效能会较佳。</font><font style="vertical-align: inherit;">此外目前一般的中高阶磁碟阵列卡都支援热拔插， 亦即在不关机的情况下抽换损坏的磁碟，对于系统的复原与资料的可靠性方面非常的好用。</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不过一块好的磁碟阵列卡动不动就上万元台币，便宜的在主机板上面『附赠』的磁碟阵列功能可能又不支援某些高阶功能， 例如低阶主机板若有磁碟阵列晶片，通常仅支援到RAID0 与RAID1 ，鸟哥喜欢的RAID6 并没有支援。</font><font style="vertical-align: inherit;">此外，作业系统也必须要拥有磁碟阵列卡的驱动程式，才能够正确的捉到磁碟阵列所产生的磁碟机！</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于磁碟阵列有很多优秀的功能，然而硬体磁碟阵列卡偏偏又贵的很～因此就有发展出利用软体来模拟磁碟阵列的功能， 这就是所谓的软体磁碟阵列(software RAID) 。</font><font style="vertical-align: inherit;">软体磁碟阵列主要是透过软体来模拟阵列的任务， 因此会损耗较多的系统资源，比如说CPU 的运算与I/O 汇流排的资源等。</font><font style="vertical-align: inherit;">不过目前我们的个人电脑实在已经非常快速了， 因此以前的速度限制现在已经不存在！</font><font style="vertical-align: inherit;">所以我们可以来玩一玩软体磁碟阵列！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于磁碟阵列有很多优秀的功能，然而硬体磁碟阵列卡偏偏又贵的很～因此就有发展出利用软件来模拟磁碟阵列的功能， 这就是所谓的软件磁碟阵列(software RAID) 。</font><font style="vertical-align: inherit;">软件磁碟阵列主要是透过软件来模拟阵列的任务， 因此会损耗较多的系统资源，比如说CPU 的运算与I/O 汇流排的资源等。</font><font style="vertical-align: inherit;">不过目前我们的个人电脑实在已经非常快速了， 因此以前的速度限制现在已经不存在！</font><font style="vertical-align: inherit;">所以我们可以来玩一玩软件磁碟阵列！</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的CentOS提供的软体磁碟阵列为mdadm这套软体，这套软体会</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以partition或disk为磁碟的单位</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，也就是说，你不需要两颗以上的磁碟，只要有两个以上的分割槽(partition)就能够设计你的磁碟阵列了。</font><font style="vertical-align: inherit;">此外， mdadm支援刚刚我们前面提到的RAID0/RAID1/RAID5/spare disk等！</font><font style="vertical-align: inherit;">而且提供的管理机制还可以达到类似热拔插的功能，可以线上(档案系统正常使用)进行分割槽的抽换！</font><font style="vertical-align: inherit;">使用上也非常的方便呢！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的CentOS提供的软件磁碟阵列为mdadm这套软件，这套软件会</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以partition或disk为磁碟的单位</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，也就是说，你不需要两颗以上的磁碟，只要有两个以上的分割槽(partition)就能够设计你的磁碟阵列了。</font><font style="vertical-align: inherit;">此外， mdadm支援刚刚我们前面提到的RAID0/RAID1/RAID5/spare disk等！</font><font style="vertical-align: inherit;">而且提供的管理机制还可以达到类似热拔插的功能，可以线上(档案系统正常使用)进行分割槽的抽换！</font><font style="vertical-align: inherit;">使用上也非常的方便呢！</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">另外你必须要知道的是，硬体磁碟阵列在Linux底下看起来就是一颗实际的大磁碟，因此硬体磁碟阵列的装置档名为/dev/sd[ap] ，因为使用到SCSI的模组之故。</font><font style="vertical-align: inherit;">至于</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">软体磁碟阵列则是系统模拟的，因此使用的装置档名是系统的装置档，档名为/dev/md0, /dev/md1...</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，两者的装置档名并不相同！</font><font style="vertical-align: inherit;">不要搞混了喔！</font><font style="vertical-align: inherit;">因为很多朋友常常觉得奇怪，怎么他的RAID档名跟我们这里测试的软体RAID档名不同，所以这里特别强调说明喔！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">另外你必须要知道的是，硬体磁碟阵列在Linux底下看起来就是一颗实际的大磁碟，因此硬体磁碟阵列的装置档名为/dev/sd[ap] ，因为使用到SCSI的模组之故。</font><font style="vertical-align: inherit;">至于</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">软件磁碟阵列则是系统模拟的，因此使用的装置档名是系统的装置档，档名为/dev/md0, /dev/md1...</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，两者的装置档名并不相同！</font><font style="vertical-align: inherit;">不要搞混了喔！</font><font style="vertical-align: inherit;">因为很多朋友常常觉得奇怪，怎么他的RAID档名跟我们这里测试的软件RAID档名不同，所以这里特别强调说明喔！</font></font></p>
 
-		<fieldset class="vbirdface"><legend style="font-family: serif; font-size:12pt; color: darkblue;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tips</font></font></legend><img src="http://linux.vbird.org/images/vbird_face.gif" alt="鸟哥的图示" title="鸟哥的图示" style="float: right;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">		Intel 的南桥附赠的磁碟阵列功能，在windows 底下似乎是完整的磁碟阵列，但是在Linux 底下则被视为是软体磁碟阵列的一种！</font><font style="vertical-align: inherit;">因此如果你有设定过Intel 的南桥晶片磁碟阵列，那在Linux 底下反而还会是/dev/md126, /dev/md127 等等装置档名， 而他的分割槽竟然是/dev/md126p1, / dev/md126p2... 之类的喔！</font><font style="vertical-align: inherit;">比较特别，所以这里加强说明！
+		<fieldset class="vbirdface"><legend style="font-family: serif; font-size:12pt; color: darkblue;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tips</font></font></legend><img src="http://linux.vbird.org/images/vbird_face.gif" alt="鸟哥的图示" title="鸟哥的图示" style="float: right;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">		Intel 的南桥附赠的磁碟阵列功能，在windows 底下似乎是完整的磁碟阵列，但是在Linux 底下则被视为是软件磁碟阵列的一种！</font><font style="vertical-align: inherit;">因此如果你有设定过Intel 的南桥晶片磁碟阵列，那在Linux 底下反而还会是/dev/md126, /dev/md127 等等装置档名， 而他的分割槽竟然是/dev/md126p1, / dev/md126p2... 之类的喔！</font><font style="vertical-align: inherit;">比较特别，所以这里加强说明！
 		</font></font></fieldset><br>	</div><br>
 
 	<a id="raid_setup"></a>
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
-	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.3 软体磁碟阵列的设定</font></font></h2>
+	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.3 软件磁碟阵列的设定</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">软体磁碟阵列的设定很简单呢！</font><font style="vertical-align: inherit;">简单到让你很想笑喔！</font><font style="vertical-align: inherit;">因为你只要使用一个指令即可！</font><font style="vertical-align: inherit;">那就是mdadm 这个指令。</font><font style="vertical-align: inherit;">这个指令在建立RAID 的语法有点像这样：</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">软件磁碟阵列的设定很简单呢！</font><font style="vertical-align: inherit;">简单到让你很想笑喔！</font><font style="vertical-align: inherit;">因为你只要使用一个指令即可！</font><font style="vertical-align: inherit;">那就是mdadm 这个指令。</font><font style="vertical-align: inherit;">这个指令在建立RAID 的语法有点像这样：</font></font></p>
 
 <a id="mdadm_create"></a>
 <table class="term"><tbody><tr><td class="term"><pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mdadm --detail /dev/md0</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
@@ -936,7 +936,7 @@ myquotaproject 500M       </font></font><span class="term_write"><font style="ve
 &gt; </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">--raid-devices=N --spare-devices=N /dev/sdx /dev/hdx...</font></font></span>
 <span class="term_say"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选项与参数：</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 --create ：为建立RAID 的选项；</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
---auto=yes ：决定建立后面接的软体磁碟阵列装置，亦即/dev/md0, /dev/md1...</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+--auto=yes ：决定建立后面接的软件磁碟阵列装置，亦即/dev/md0, /dev/md1...</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 --chunk=Nk ：决定这个装置的chunk 大小，也可以当成stripe 大小，一般是64K 或512K。</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 --raid-devices=N ：使用几个磁碟(partition) 作为磁碟阵列的装置</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 --spare-devices=N ：使用几个磁碟作为备用(spare) 装置</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
@@ -944,7 +944,7 @@ myquotaproject 500M       </font></font><span class="term_write"><font style="ve
 --detail ：后面所接的那个磁碟阵列装置的详细资讯</font></font></span>
 </pre></td></tr></tbody></table>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上面的语法中，最后面会接许多的装置档名，这些装置档名可以是整颗磁碟，例如/dev/sdb ， 也可以是分割槽，例如/dev/sdb1 之类。</font><font style="vertical-align: inherit;">不过，这些装置档名的总数必须要等于--raid-devices 与--spare-devices 的个数总和才行！</font><font style="vertical-align: inherit;">鸟哥利用我的测试机来建置一个RAID 5 的软体磁碟阵列给您瞧瞧！</font><font style="vertical-align: inherit;">底下是鸟哥希望做成的RAID 5 环境：</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上面的语法中，最后面会接许多的装置档名，这些装置档名可以是整颗磁碟，例如/dev/sdb ， 也可以是分割槽，例如/dev/sdb1 之类。</font><font style="vertical-align: inherit;">不过，这些装置档名的总数必须要等于--raid-devices 与--spare-devices 的个数总和才行！</font><font style="vertical-align: inherit;">鸟哥利用我的测试机来建置一个RAID 5 的软件磁碟阵列给您瞧瞧！</font><font style="vertical-align: inherit;">底下是鸟哥希望做成的RAID 5 环境：</font></font></p>
 
 		<ul>
 		<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">利用4 个partition 组成RAID 5；</font></font></li>
@@ -1038,7 +1038,7 @@ Working Devices : 5                                  </font></font><span class="
 # 至于RaidDevice 指的则是此RAID 内的磁碟顺序</font></font></span>
 </pre></td></tr></tbody></table>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于磁碟阵列的建置需要一些时间，所以你最好等待数分钟后再使用『 mdadm --detail /dev/md0 』去查阅你的磁碟阵列详细资讯！</font><font style="vertical-align: inherit;">否则有可能看到某些磁碟正在『spare rebuilding』之类的建置字样！</font><font style="vertical-align: inherit;">透过上面的指令， 你就能够建立一个RAID5 且含有一颗spare disk 的磁碟阵列啰！</font><font style="vertical-align: inherit;">非常简单吧！</font><font style="vertical-align: inherit;">除了指令之外，你也可以查阅如下的档案来看看系统软体磁碟阵列的情况：</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于磁碟阵列的建置需要一些时间，所以你最好等待数分钟后再使用『 mdadm --detail /dev/md0 』去查阅你的磁碟阵列详细资讯！</font><font style="vertical-align: inherit;">否则有可能看到某些磁碟正在『spare rebuilding』之类的建置字样！</font><font style="vertical-align: inherit;">透过上面的指令， 你就能够建立一个RAID5 且含有一颗spare disk 的磁碟阵列啰！</font><font style="vertical-align: inherit;">非常简单吧！</font><font style="vertical-align: inherit;">除了指令之外，你也可以查阅如下的档案来看看系统软件磁碟阵列的情况：</font></font></p>
 
 <table class="term"><tbody><tr><td class="term"><pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cat /proc/mdstat</font></font></span><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 Personalities : [raid6] [raid5] [raid4]</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
@@ -1083,7 +1083,7 @@ Filesystem Type Size Used Avail Use% Mounted on</font></font><font></font><font 
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.4 模拟RAID 错误的救援模式</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">俗话说『天有不测风云、人有旦夕祸福』，谁也不知道你的磁碟阵列内的装置啥时会出差错，因此， 了解一下软体磁碟阵列的救援还是必须的！</font><font style="vertical-align: inherit;">底下我们就来玩一玩救援的机制吧！</font><font style="vertical-align: inherit;">首先来了解一下mdadm 这方面的语法：</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">俗话说『天有不测风云、人有旦夕祸福』，谁也不知道你的磁碟阵列内的装置啥时会出差错，因此， 了解一下软件磁碟阵列的救援还是必须的！</font><font style="vertical-align: inherit;">底下我们就来玩一玩救援的机制吧！</font><font style="vertical-align: inherit;">首先来了解一下mdadm 这方面的语法：</font></font></p>
 
 <a id="mdadm_manage"></a>
 <table class="term"><tbody><tr><td class="term"><pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mdadm --manage /dev/md[0-9] [--add装置] [--remove装置] [--fail装置]</font></font></span>
@@ -1208,7 +1208,7 @@ Filesystem Type Size Used Avail Use% Mounted on</font></font><font></font><font 
 
 	<a id="raid_stop"></a>
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
-	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.6 关闭软体RAID(重要！)</font></font></h2>
+	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.2.6 关闭软件RAID(重要！)</font></font></h2>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">除非你未来就是要使用这颗software RAID (/dev/md0)，否则你势必要跟鸟哥一样，将这个/dev/md0 关闭！</font><font style="vertical-align: inherit;">因为他毕竟是我们在这个测试机上面的练习装置啊！</font><font style="vertical-align: inherit;">为什么要关掉他呢？</font><font style="vertical-align: inherit;">因为这个/dev/md0 其实还是使用到我们系统的磁碟分割槽， 在鸟哥的例子里面就是/dev/vda{5,6,7,8,9}，如果你只是将/dev/md0 卸载，然后忘记将RAID 关闭， 结果就是....未来你在重新分割/dev/vdaX 时可能会出现一些莫名的错误状况啦！</font><font style="vertical-align: inherit;">所以才需要关闭software RAID 的步骤！</font><font style="vertical-align: inherit;">那如何关闭呢？</font><font style="vertical-align: inherit;">也是简单到爆炸！</font><font style="vertical-align: inherit;">(请注意，确认你的/dev/md0 确实不要用且要关闭了才进行底下的玩意儿)</font></font></p>
 
@@ -1239,7 +1239,7 @@ unused devices: &lt;none&gt;   </font></font><span class="term_note"><font style
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你可能会问，鸟哥啊，为啥上面会有数个dd 的指令啊？</font><font style="vertical-align: inherit;">干麻？</font><font style="vertical-align: inherit;">这是因为RAID 的相关资料其实也会存一份在磁碟当中，因此，如果你只是将设定档移除， 同时关闭了RAID，但是分割槽并没有重新规划过，那么重新开机过后，系统还是会将这颗磁碟阵列建立起来，只是名称可能会变成/dev/md127 就是了！</font><font style="vertical-align: inherit;">因此，移除掉Software RAID 时，上述的dd 指令不要忘记！</font><font style="vertical-align: inherit;">但是...千千万万不要dd 到错误的磁碟～那可是会欲哭无泪耶～</font></font></p>
 
-		<fieldset class="vbirdface"><legend style="font-family: serif; font-size:12pt; color: darkblue;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tips</font></font></legend><img src="http://linux.vbird.org/images/vbird_face.gif" alt="鸟哥的图示" title="鸟哥的图示" style="float: right;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">		在这个练习中，鸟哥使用同一颗磁碟进行软体RAID 的实验。</font><font style="vertical-align: inherit;">不过朋友们要注意的是，如果真的要实作软体磁碟阵列， 最好是由多颗不同的磁碟来组成较佳！</font><font style="vertical-align: inherit;">因为这样才能够使用到不同磁碟的读写，效能才会好！</font><font style="vertical-align: inherit;">而资料分配在不同的磁碟，当某颗磁碟损毁时资料才能够藉由其他磁碟挽救回来！</font><font style="vertical-align: inherit;">这点得特别留意呢！
+		<fieldset class="vbirdface"><legend style="font-family: serif; font-size:12pt; color: darkblue;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tips</font></font></legend><img src="http://linux.vbird.org/images/vbird_face.gif" alt="鸟哥的图示" title="鸟哥的图示" style="float: right;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">		在这个练习中，鸟哥使用同一颗磁碟进行软件RAID 的实验。</font><font style="vertical-align: inherit;">不过朋友们要注意的是，如果真的要实作软件磁碟阵列， 最好是由多颗不同的磁碟来组成较佳！</font><font style="vertical-align: inherit;">因为这样才能够使用到不同磁碟的读写，效能才会好！</font><font style="vertical-align: inherit;">而资料分配在不同的磁碟，当某颗磁碟损毁时资料才能够藉由其他磁碟挽救回来！</font><font style="vertical-align: inherit;">这点得特别留意呢！
 		</font></font></fieldset><br>	</div>
 </div>
 
@@ -1257,7 +1257,7 @@ unused devices: &lt;none&gt;   </font></font><span class="term_note"><font style
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.3.1 什么是LVM： PV, PE, VG, LV 的意义</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LVM 的全名是Logical Volume Manager，中文可以翻译作逻辑卷轴管理员。</font><font style="vertical-align: inherit;">之所以称为『卷轴』可能是因为可以将 filesystem 像卷轴一样伸长或缩短之故吧！</font><font style="vertical-align: inherit;">LVM 的作法是将几个实体的partitions (或disk) 透过软体组合成为一块看起来是独立的大磁碟(VG) ，然后将这块大磁碟再经过分割成为可使用分割槽(LV)，最终就能够挂载使用了。</font><font style="vertical-align: inherit;">但是为什么这样的系统可以进行filesystem 的扩充或缩小呢？</font><font style="vertical-align: inherit;">其实与一个称为PE 的项目有关！</font><font style="vertical-align: inherit;">底下我们就得要针对这几个项目来好好聊聊！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LVM 的全名是Logical Volume Manager，中文可以翻译作逻辑卷轴管理员。</font><font style="vertical-align: inherit;">之所以称为『卷轴』可能是因为可以将 filesystem 像卷轴一样伸长或缩短之故吧！</font><font style="vertical-align: inherit;">LVM 的作法是将几个实体的partitions (或disk) 透过软件组合成为一块看起来是独立的大磁碟(VG) ，然后将这块大磁碟再经过分割成为可使用分割槽(LV)，最终就能够挂载使用了。</font><font style="vertical-align: inherit;">但是为什么这样的系统可以进行filesystem 的扩充或缩小呢？</font><font style="vertical-align: inherit;">其实与一个称为PE 的项目有关！</font><font style="vertical-align: inherit;">底下我们就得要针对这几个项目来好好聊聊！</font></font></p>
 
 		<div class="illus">
 
@@ -1314,7 +1314,7 @@ unused devices: &lt;none&gt;   </font></font><span class="term_note"><font style
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">14.3.2 LVM 实作流程</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LVM 必需要核心有支援且需要安装lvm2 这个软体，好佳在的是， CentOS 与其他较新的distributions 已经预设将lvm 的支援与软体都安装妥当了！</font><font style="vertical-align: inherit;">所以你不需要担心这方面的问题！</font><font style="vertical-align: inherit;">用就对了！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LVM 必需要核心有支援且需要安装lvm2 这个软件，好佳在的是， CentOS 与其他较新的distributions 已经预设将lvm 的支援与软件都安装妥当了！</font><font style="vertical-align: inherit;">所以你不需要担心这方面的问题！</font><font style="vertical-align: inherit;">用就对了！</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">假设你刚刚也是透过同样的方法来处理鸟哥的测试机RAID 实作，那么现在应该有5 个可用的分割槽才对！</font><font style="vertical-align: inherit;">不过，建议你还是得要修改一下system ID 比较好！</font><font style="vertical-align: inherit;">将RAID 的fd 改为LVM 的8e 吧！</font><font style="vertical-align: inherit;">现在，我们实作LVM 有点像底下的模样：</font></font></p>
 
@@ -1974,11 +1974,11 @@ drwxr-xr-x. 16 root root 4096 Jul 28 00:01 log</font></font><font></font>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quota 是针对整个filesystem 进行限制，XFS 档案系统可以限制目录！</font></font></li>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quota 的使用必须要核心与档案系统均支援。</font><font style="vertical-align: inherit;">档案系统的参数必须含有usrquota, grpquota, prjquota</font></font></li>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quota 的xfs_quota 实作的指令有report, print, limit, timer... 等指令；</font></font></li>
-	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁碟阵列(RAID) 有硬体与软体之分，Linux 作业系统可支援软体磁碟阵列，透过mdadm 套件来达成；</font></font></li>
+	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁碟阵列(RAID) 有硬体与软件之分，Linux 作业系统可支援软件磁碟阵列，透过mdadm 套件来达成；</font></font></li>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁碟阵列建置的考量依据为『容量』、『效能』、『资料可靠性』等；</font></font></li>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">磁碟阵列所建置的等级常见有的raid0, raid1, raid1+0, raid5 及raid6</font></font></li>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">硬体磁碟阵列的装置档名与SCSI 相同，至于software RAID 则为/dev/md[0-9]</font></font></li>
-	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">软体磁碟阵列的状态可藉由/proc/mdstat 档案来了解；</font></font></li>
+	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">软件磁碟阵列的状态可藉由/proc/mdstat 档案来了解；</font></font></li>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LVM 强调的是『弹性的变化档案系统的容量』；</font></font></li>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与LVM 有关的元件有： PV/VG/PE/LV 等元件，可以被格式化者为LV</font></font></li>
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新的LVM 拥有LVM thin volume 的功能，能够动态调整磁碟的使用率！</font></font></li>

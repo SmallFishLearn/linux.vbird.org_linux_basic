@@ -850,7 +850,7 @@ root 18740 0.0 0.0 112644 980 pts/0 S+ 00:49 0:00 grep -E --color=auto (cron|rsy
 	T ：由该Process 使用的CPU 时间累积(TIME+) 排序。</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 	k ：给予某个PID 一个讯号(signal)</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 	r ：给予某个PID 重新制订一个nice 值。</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-	q ：离开top 软体的按键。</font></font></span>
+	q ：离开top 软件的按键。</font></font></span>
 </pre></td></tr></tbody></table>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其实top 的功能非常多！</font><font style="vertical-align: inherit;">可以用的按键也非常的多！</font><font style="vertical-align: inherit;">可以参考man top 的内部说明文件！</font><font style="vertical-align: inherit;">鸟哥这里仅是列出一些鸟哥自己常用的选项而已。</font><font style="vertical-align: inherit;">接下来让我们实际观察一下如何使用top 与top 的画面吧！</font></font></p>
@@ -1004,7 +1004,7 @@ systemd(1)-+-ModemManager(745)-+-{ModemManager}(785)</font></font><font></font><
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.3.2 程序的管理</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">程序之间是可以互相控制的！</font><font style="vertical-align: inherit;">举例来说，你可以关闭、重新启动伺服器软体，伺服器软体本身是个程序，你既然可以让她关闭或启动，当然就是可以控制该程序啦！</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">那么程序是如何互相管理的呢？</font><font style="vertical-align: inherit;">其实是透过给予该程序一个讯号(signal)去告知该程序你想要让她作什么！</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因此这个讯号就很重要啦！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">程序之间是可以互相控制的！</font><font style="vertical-align: inherit;">举例来说，你可以关闭、重新启动伺服器软件，伺服器软件本身是个程序，你既然可以让她关闭或启动，当然就是可以控制该程序啦！</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">那么程序是如何互相管理的呢？</font><font style="vertical-align: inherit;">其实是透过给予该程序一个讯号(signal)去告知该程序你想要让她作什么！</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因此这个讯号就很重要啦！</font></font></p>
 
 		<a id="signal"></a>
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们也在本章之前的</font></font><a href="#background"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">bash工作管理</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当中提到过，要给予某个已经存在背景中的工作某些动作时，是直接给予一个讯号给该工作号码即可。</font><font style="vertical-align: inherit;">那么到底有多少signal呢？</font><font style="vertical-align: inherit;">你可以使用kill -l (小写的L )或者是man 7 signal都可以查询到！</font><font style="vertical-align: inherit;">主要的讯号代号与名称对应及内容是：</font></font></p>
@@ -1282,7 +1282,7 @@ unix 3 [ ] STREAM CONNECTED 21262</font></font><font></font>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们看上面仅有一条连线的资料，他的意义是：『透过TCP封包的连线，远端的172.16.220.234:48300连线到本地端的172.16.15.100:ssh ，这条连线状态是建立(ESTABLISHED)的状态！</font><font style="vertical-align: inherit;">』至于更多的网路环境说明，就得到</font></font><a href="/linux_server"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">鸟哥的另一本伺服器篇</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查阅啰！</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">除了网路上的连线之外，其实Linux系统上面的程序是可以接收不同程序所发送来的资讯，那就是Linux上头的插槽档(socket file)。</font><font style="vertical-align: inherit;">我们在</font></font><a href="http://linux.vbird.org/linux_basic/0210filepermission.php#filepermission_type"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第五章的档案种类</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有稍微提到socket档案，但当时未谈到程序的概念，所以没有深入谈论。</font><font style="vertical-align: inherit;">socket file可以沟通两个程序之间的资讯，因此程序可以取得对方传送过来的资料。</font><font style="vertical-align: inherit;">由于有socket file，因此类似X Window这种需要透过网路连接的软体，目前新版的distributions就以socket来进行视窗介面的连线沟通了。</font><font style="vertical-align: inherit;">上表中socket file的输出栏位有：</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">除了网路上的连线之外，其实Linux系统上面的程序是可以接收不同程序所发送来的资讯，那就是Linux上头的插槽档(socket file)。</font><font style="vertical-align: inherit;">我们在</font></font><a href="http://linux.vbird.org/linux_basic/0210filepermission.php#filepermission_type"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第五章的档案种类</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有稍微提到socket档案，但当时未谈到程序的概念，所以没有深入谈论。</font><font style="vertical-align: inherit;">socket file可以沟通两个程序之间的资讯，因此程序可以取得对方传送过来的资料。</font><font style="vertical-align: inherit;">由于有socket file，因此类似X Window这种需要透过网路连接的软件，目前新版的distributions就以socket来进行视窗介面的连线沟通了。</font><font style="vertical-align: inherit;">上表中socket file的输出栏位有：</font></font></p>
 
 		<ul>
 		<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Proto ：一般就是unix 啦；</font></font></li>
@@ -1317,7 +1317,7 @@ udp6 0 0 ::1:323 :::* 751/chronyd</font></font><font></font>
 [root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">killall -9 avahi-daemon</font></font></span>
 </pre></td></tr></tbody></table>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">很多朋友常常有疑问，那就是，我的主机目前到底开了几个门(ports)！</font><font style="vertical-align: inherit;">其实，不论主机提供什么样的服务， 一定必须要有相对应的program 在主机上面执行才行啊！</font><font style="vertical-align: inherit;">举例来说，我们鸟园的Linux 主机提供的就是WWW 服务，那么我的主机当然有一个程式在提供WWW 的服务啊！</font><font style="vertical-align: inherit;">那就是Apache 这个软体所提供的啦！</font><font style="vertical-align: inherit;">^_^。</font><font style="vertical-align: inherit;">所以，当我执行了这个程式之后，我的系统自然就可以提供WWW 的服务了。</font><font style="vertical-align: inherit;">那如何关闭啊？</font><font style="vertical-align: inherit;">就关掉该程式所触发的那个程序就好了！</font><font style="vertical-align: inherit;">例如上面的范例三所提供的例子啊！</font><font style="vertical-align: inherit;">不过，这个是非正规的作法喔！</font><font style="vertical-align: inherit;">正规的作法，请查阅下一章的说明呦！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">很多朋友常常有疑问，那就是，我的主机目前到底开了几个门(ports)！</font><font style="vertical-align: inherit;">其实，不论主机提供什么样的服务， 一定必须要有相对应的program 在主机上面执行才行啊！</font><font style="vertical-align: inherit;">举例来说，我们鸟园的Linux 主机提供的就是WWW 服务，那么我的主机当然有一个程式在提供WWW 的服务啊！</font><font style="vertical-align: inherit;">那就是Apache 这个软件所提供的啦！</font><font style="vertical-align: inherit;">^_^。</font><font style="vertical-align: inherit;">所以，当我执行了这个程式之后，我的系统自然就可以提供WWW 的服务了。</font><font style="vertical-align: inherit;">那如何关闭啊？</font><font style="vertical-align: inherit;">就关掉该程式所触发的那个程序就好了！</font><font style="vertical-align: inherit;">例如上面的范例三所提供的例子啊！</font><font style="vertical-align: inherit;">不过，这个是非正规的作法喔！</font><font style="vertical-align: inherit;">正规的作法，请查阅下一章的说明呦！</font></font></p>
 
 		<a id="dmesg"></a>
 		<ul class="toplist"><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dmesg ：分析核心产生的讯息</font></font></li></ul>
@@ -1517,7 +1517,7 @@ lrwxrwxrwx. 1 root root 0 Aug 4 18:46 exe</font></font><font></font>
 <tr><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/proc/bus/*</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一些汇流排的装置，还有USB 的装置也记录在此喔！</font></font></td></tr>
 </tbody></table>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其实，上面这些档案鸟哥在此建议您可以使用cat 去查阅看看，不必深入了解， 不过，观看过档案内容后，毕竟会比较有感觉啦！</font><font style="vertical-align: inherit;">如果未来您想要自行撰写某些工具软体， 那么这个目录底下的相关档案可能会对您有点帮助的喔！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其实，上面这些档案鸟哥在此建议您可以使用cat 去查阅看看，不必深入了解， 不过，观看过档案内容后，毕竟会比较有感觉啦！</font><font style="vertical-align: inherit;">如果未来您想要自行撰写某些工具软件， 那么这个目录底下的相关档案可能会对您有点帮助的喔！</font></font></p>
 	<br></div><br>
 
 	<a id="ofile"></a>
@@ -1698,7 +1698,7 @@ bash 13888 root mem REG 253,0 106065056 17331169 /usr/lib/locale/locale-archive<
 <div class="block1">
 <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.5 SELinux 初探</font></font></h2>
 
-	<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从进入了CentOS 5.x 之后的CentOS 版本中(当然包括CentOS 7)，SELinux 已经是个非常完备的核心模组了！</font><font style="vertical-align: inherit;">尤其CentOS 提供了很多管理SELinux 的指令与机制， 因此在整体架构上面是单纯且容易操作管理的！</font><font style="vertical-align: inherit;">所以，在没有自行开发网路服务软体以及使用其他第三方协力软体的情况下， 也就是全部使用CentOS 官方提供的软体来使用我们伺服器的情况下，建议大家不要关闭SELinux 了喔！</font><font style="vertical-align: inherit;">让我们来仔细的玩玩这家伙吧！</font></font></p>
+	<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从进入了CentOS 5.x 之后的CentOS 版本中(当然包括CentOS 7)，SELinux 已经是个非常完备的核心模组了！</font><font style="vertical-align: inherit;">尤其CentOS 提供了很多管理SELinux 的指令与机制， 因此在整体架构上面是单纯且容易操作管理的！</font><font style="vertical-align: inherit;">所以，在没有自行开发网路服务软件以及使用其他第三方协力软件的情况下， 也就是全部使用CentOS 官方提供的软件来使用我们伺服器的情况下，建议大家不要关闭SELinux 了喔！</font><font style="vertical-align: inherit;">让我们来仔细的玩玩这家伙吧！</font></font></p>
 
 	<a id="selinux_what"></a>
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
@@ -1711,9 +1711,9 @@ bash 13888 root mem REG 253,0 106065056 17331169 /usr/lib/locale/locale-archive<
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SELinux是由美国国家安全局(NSA)开发的，当初开发这玩意儿的目的是因为</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">很多企业界发现，通常系统出现问题的原因大部分都在于『内部员工的资源误用』所导致的，实际由外部发动的攻击反而没有这么严重</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">那么什么是『员工资源误用』呢？</font><font style="vertical-align: inherit;">举例来说，如果有个不是很懂系统的系统管理员为了自己设定的方便，将网页所在目录/var/www/html/的权限设定为drwxrwxrwx时，你觉得会有什么事情发生？</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在我们知道所有的系统资源都是透过程序来进行存取的，那么/var/www/html/ 如果设定为777 ， 代表所有程序均可对该目录存取，万一你真的有启动WWW 伺服器软体，那么该软体所触发的程序将可以写入该目录， 而该程序却是对整个Internet 提供服务的！</font><font style="vertical-align: inherit;">只要有心人接触到这支程序，而且该程序刚好又有提供使用者进行写入的功能， 那么外部的人很可能就会对你的系统写入些莫名其妙的东西！</font><font style="vertical-align: inherit;">那可真是不得了！</font><font style="vertical-align: inherit;">一个小小的777 问题可是大大的！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在我们知道所有的系统资源都是透过程序来进行存取的，那么/var/www/html/ 如果设定为777 ， 代表所有程序均可对该目录存取，万一你真的有启动WWW 伺服器软件，那么该软件所触发的程序将可以写入该目录， 而该程序却是对整个Internet 提供服务的！</font><font style="vertical-align: inherit;">只要有心人接触到这支程序，而且该程序刚好又有提供使用者进行写入的功能， 那么外部的人很可能就会对你的系统写入些莫名其妙的东西！</font><font style="vertical-align: inherit;">那可真是不得了！</font><font style="vertical-align: inherit;">一个小小的777 问题可是大大的！</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为了控管这方面的权限与程序的问题，所以美国国家安全局就着手处理作业系统这方面的控管。</font><font style="vertical-align: inherit;">由于Linux 是自由软体，程式码都是公开的，因此她们便使用Linux 来作为研究的目标， 最后更将研究的结果整合到Linux 核心里面去，那就是SELinux 啦！</font><font style="vertical-align: inherit;">所以说， SELinux 是整合到核心的一个模组喔！</font><font style="vertical-align: inherit;">更多的SELinux 相关说明可以参考：</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为了控管这方面的权限与程序的问题，所以美国国家安全局就着手处理作业系统这方面的控管。</font><font style="vertical-align: inherit;">由于Linux 是自由软件，程式码都是公开的，因此她们便使用Linux 来作为研究的目标， 最后更将研究的结果整合到Linux 核心里面去，那就是SELinux 啦！</font><font style="vertical-align: inherit;">所以说， SELinux 是整合到核心的一个模组喔！</font><font style="vertical-align: inherit;">更多的SELinux 相关说明可以参考：</font></font></p>
 		<ul><li><a href="http://www.nsa.gov/research/selinux/" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.nsa.gov/research/selinux/</font></font></a></li></ul>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这也就是说：</font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其实SELinux是在进行程序、档案等细部权限设定依据的一个核心模组！</font><font style="vertical-align: inherit;">由于启动网路服务的也是程序，因此刚好也能够控制网路服务能否存取系统资源的一道关卡！</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
@@ -1742,7 +1742,7 @@ bash 13888 root mem REG 253,0 106065056 17331169 /usr/lib/locale/locale-archive<
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">委任式存取控制(MAC) 有趣啦！</font><font style="vertical-align: inherit;">他可以针对特定的程序与特定的档案资源来进行权限的控管！</font><font style="vertical-align: inherit;">也就是说，即使你是root ，那么在使用不同的程序时，你所能取得的权限并不一定是root ， 而得要看当时该程序的设定而定。</font><font style="vertical-align: inherit;">如此一来，我们针对控制的『主体』变成了『程序』而不是使用者喔！</font><font style="vertical-align: inherit;">此外，这个主体程序也不能任意使用系统档案资源，因为每个档案资源也有针对该主体程序设定可取用的权限！</font><font style="vertical-align: inherit;">如此一来，控制项目就细的多了！</font><font style="vertical-align: inherit;">但整个系统程序那么多、档案那么多，一项一项控制可就没完没了！</font><font style="vertical-align: inherit;">所以SELinux 也提供一些预设的政策(Policy) ，并在该政策内提供多个规则(rule) ，让你可以选择是否启用该控制规则！</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在委任式存取控制的设定下，我们的程序能够活动的空间就变小了！</font><font style="vertical-align: inherit;">举例来说， WWW 伺服器软体的达成程序为httpd 这支程式， 而预设情况下， httpd 仅能在/var/www/ 这个目录底下存取档案，如果httpd 这个程序想要到其他目录去存取资料时， 除了规则设定要开放外，目标目录也得要设定成httpd 可读取的模式(type) 才行喔！</font><font style="vertical-align: inherit;">限制非常多！</font><font style="vertical-align: inherit;">所以，即使不小心httpd 被cracker 取得了控制权，他也无权浏览/etc/shadow 等重要的设定档喔！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在委任式存取控制的设定下，我们的程序能够活动的空间就变小了！</font><font style="vertical-align: inherit;">举例来说， WWW 伺服器软件的达成程序为httpd 这支程式， 而预设情况下， httpd 仅能在/var/www/ 这个目录底下存取档案，如果httpd 这个程序想要到其他目录去存取资料时， 除了规则设定要开放外，目标目录也得要设定成httpd 可读取的模式(type) 才行喔！</font><font style="vertical-align: inherit;">限制非常多！</font><font style="vertical-align: inherit;">所以，即使不小心httpd 被cracker 取得了控制权，他也无权浏览/etc/shadow 等重要的设定档喔！</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">简单的来说，针对Apache 这个WWW 网路服务使用DAC 或MAC 的结果来说，两者间的关系可以使用下图来说明。</font><font style="vertical-align: inherit;">底下这个图示取自Red Hat 训练教材，真的是很不错～所以被鸟哥借用来说明一下！</font></font></p>
 
@@ -1821,7 +1821,7 @@ bash 13888 root mem REG 253,0 106065056 17331169 /usr/lib/locale/locale-archive<
 		<li><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">unconfined_u</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：不受限的用户，也就是说，该档案来自于不受限的程序所产生的！</font><font style="vertical-align: inherit;">一般来说，我们使用可登入帐号来取得bash之后，预设的bash环境是不受SELinux管制的～因为bash并不是什么特别的网路服务！</font><font style="vertical-align: inherit;">因此，在这个不受SELinux所限制的bash程序所产生的档案，其身份识别大多就是unconfined_u这个『不受限』用户啰！</font></font></li>
 		<li style="margin-top: 10px;"><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">system_u</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：系统用户，大部分就是系统自己产生的档案啰！</font></font></li>
 		</ul>
-		<p style="margin: 10px 0 10px 40px; padding: 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本上，如果是系统或软体本身所提供的档案，大多就是system_u 这个身份名称，而如果是我们用户透过bash 自己建立的档案，大多则是不受限的unconfined_u 身份～如果是网路服务所产生的档案，或者是系统服务运作过程产生的档案，则大部分的识别就会是system_u 啰！</font></font></p>
+		<p style="margin: 10px 0 10px 40px; padding: 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本上，如果是系统或软件本身所提供的档案，大多就是system_u 这个身份名称，而如果是我们用户透过bash 自己建立的档案，大多则是不受限的unconfined_u 身份～如果是网路服务所产生的档案，或者是系统服务运作过程产生的档案，则大部分的识别就会是system_u 啰！</font></font></p>
 
 		<p style="margin: 10px 0 10px 40px; padding: 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因为鸟哥这边教大家使用文字界面来产生许多的资料，因此你看上面的三个档案中，系统安装主动产生的anaconda-ks.cfs 及initial-setup-ks.cfg 就会是system_u，而我们自己从网路上面抓下来的regular_express.txt 就会是unconfined_u 这个识别啊！</font></font></p>
 
@@ -1863,7 +1863,7 @@ unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 31513 ? 00:00:00 sshd</fon
 
 <table class="news" style="width: 95%">
 <tbody><tr class="theader"><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">身份识别</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">角色</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该对应在targeted 的意义</font></font></td></tr>
-<tr><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">unconfined_u</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">unconfined_r</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一般可登入使用者的程序啰！</font><font style="vertical-align: inherit;">比较没有受限的程序之意！</font><font style="vertical-align: inherit;">大多数都是用户已经顺利登入系统(不论是网路还是本机登入来取得可用的shell) 后， 所用来操作系统的程序！</font><font style="vertical-align: inherit;">如bash, X window 相关软体等。</font></font></td></tr>
+<tr><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">unconfined_u</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">unconfined_r</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一般可登入使用者的程序啰！</font><font style="vertical-align: inherit;">比较没有受限的程序之意！</font><font style="vertical-align: inherit;">大多数都是用户已经顺利登入系统(不论是网路还是本机登入来取得可用的shell) 后， 所用来操作系统的程序！</font><font style="vertical-align: inherit;">如bash, X window 相关软件等。</font></font></td></tr>
 <tr><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">system_u</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">system_r</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于为系统帐号，因此是非交谈式的系统运作程序，大多数的系统程序均是这种类型！</font></font></td></tr>
 </tbody></table>
 
@@ -2056,7 +2056,7 @@ httpd_enable_homedirs --&gt; off             </font></font><span class="term_not
 
 		<ul class="toplist"><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SELinux 各个规则规范的主体程序能够读取的档案SELinux type 查询seinfo, sesearch</font></font></li></ul>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们现在知道有这么多的SELinux 规则，但是每个规则内到底是在限制什么东西？</font><font style="vertical-align: inherit;">如果你想要知道的话，那就得要使用seinfo 等工具！</font><font style="vertical-align: inherit;">这些工具并没有在我们安装时就安装了，因此请拿出原版光碟，放到光碟机，鸟哥假设你将原版光碟挂载到/mnt 底下，那么接下来这么作， 先安装好我们所需要的软体才行！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们现在知道有这么多的SELinux 规则，但是每个规则内到底是在限制什么东西？</font><font style="vertical-align: inherit;">如果你想要知道的话，那就得要使用seinfo 等工具！</font><font style="vertical-align: inherit;">这些工具并没有在我们安装时就安装了，因此请拿出原版光碟，放到光碟机，鸟哥假设你将原版光碟挂载到/mnt 底下，那么接下来这么作， 先安装好我们所需要的软件才行！</font></font></p>
 
 <table class="term"><tbody><tr><td class="term"><pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">yum install /mnt/Packages/setools-console-*</font></font></span>
 </pre></td></tr></tbody></table>
@@ -2286,7 +2286,7 @@ drwxr-xr-x. root root unconfined_u:object_r: </font></font><span class="term_wri
 		<a id="setroubleshoot"></a>
 		<ul class="toplist"><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">setroubleshoot --&gt; 错误讯息写入/var/log/messages</font></font></li></ul>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">几乎所有SELinux 相关的程式都会以se 为开头，这个服务也是以se 为开头！</font><font style="vertical-align: inherit;">而troubleshoot 大家都知道是错误克服，因此这个 setroubleshoot 自然就得要启动他啦！</font><font style="vertical-align: inherit;">这个服务会将关于SELinux 的错误讯息与克服方法记录到/var/log/messages 与/var/log/setroubleshoot/* 里头，所以你一定得要启动这个服务才好。</font><font style="vertical-align: inherit;">启动这个服务之前当然就是得要安装它啦！</font><font style="vertical-align: inherit;">这玩意儿总共需要两个软体，分别是setroublshoot 与 setroubleshoot-server，如果你没有安装，请自行使用yum 安装吧！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">几乎所有SELinux 相关的程式都会以se 为开头，这个服务也是以se 为开头！</font><font style="vertical-align: inherit;">而troubleshoot 大家都知道是错误克服，因此这个 setroubleshoot 自然就得要启动他啦！</font><font style="vertical-align: inherit;">这个服务会将关于SELinux 的错误讯息与克服方法记录到/var/log/messages 与/var/log/setroubleshoot/* 里头，所以你一定得要启动这个服务才好。</font><font style="vertical-align: inherit;">启动这个服务之前当然就是得要安装它啦！</font><font style="vertical-align: inherit;">这玩意儿总共需要两个软件，分别是setroublshoot 与 setroubleshoot-server，如果你没有安装，请自行使用yum 安装吧！</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此外，原本的SELinux 资讯本来是以两个服务来记录的，分别是auditd 与setroubleshootd。</font><font style="vertical-align: inherit;">既然是同样的资讯，因此CentOS 6.x (含7.x) 以后将两者整合在 auditd 当中啦！</font><font style="vertical-align: inherit;">所以，并没有setroubleshootd 的服务存在了喔！</font><font style="vertical-align: inherit;">因此，当你安装好了setroubleshoot-server 之后，请记得要重新启动 auditd，否则setroubleshootd 的功能不会被启动的。</font></font></p>
 
@@ -2298,14 +2298,14 @@ setroubleshoot-3.2.17-3.el7.x86_64</font></font><font></font><font style="vertic
 setroubleshoot-server-3.2.17-3.el7.x86_64</font></font><font></font>
 </pre></td></tr></tbody></table>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在预设的情况下，这个setroubleshoot 应该都是会安装的！</font><font style="vertical-align: inherit;">是否正确安装可以使用上述的表格指令去查询。</font><font style="vertical-align: inherit;">万一没有安装，请使用yum install 去安装吧！</font><font style="vertical-align: inherit;">再说一遍，安装完毕最好重新启动auditd 这个服务喔！</font><font style="vertical-align: inherit;">不过，刚刚装好且顺利启动后， setroubleshoot 还是不会有作用，为啥？</font><font style="vertical-align: inherit;">因为我们并没有任何受限的网路服务主体程序在运作啊！</font><font style="vertical-align: inherit;">所以，底下我们将使用一个简单的FTP 伺服器软体为例，让你了解到我们上头讲到的许多重点的应用！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在预设的情况下，这个setroubleshoot 应该都是会安装的！</font><font style="vertical-align: inherit;">是否正确安装可以使用上述的表格指令去查询。</font><font style="vertical-align: inherit;">万一没有安装，请使用yum install 去安装吧！</font><font style="vertical-align: inherit;">再说一遍，安装完毕最好重新启动auditd 这个服务喔！</font><font style="vertical-align: inherit;">不过，刚刚装好且顺利启动后， setroubleshoot 还是不会有作用，为啥？</font><font style="vertical-align: inherit;">因为我们并没有任何受限的网路服务主体程序在运作啊！</font><font style="vertical-align: inherit;">所以，底下我们将使用一个简单的FTP 伺服器软件为例，让你了解到我们上头讲到的许多重点的应用！</font></font></p>
 
 		<a id="selinux_ftp_how"></a>
 		<ul class="toplist"><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例状况说明：透过vsftpd 这个FTP 伺服器来存取系统上的档案</font></font></li></ul>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在的年轻小伙子们传资料都用line, FB, dropbox, google 云端磁碟等等，不过在网路早期传送大容量的档案，还是以FTP 这个协定为主！</font><font style="vertical-align: inherit;">现在为了速度，经常有p2p 的软体提供大容量档案的传输，但以鸟哥这个老人家来说，可能FTP 传送资料还是比较有保障... 在CentOS 7.x 的环境下，达成FTP 的预设伺服器软体主要是vsftpd 这一支喔！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在的年轻小伙子们传资料都用line, FB, dropbox, google 云端磁碟等等，不过在网路早期传送大容量的档案，还是以FTP 这个协定为主！</font><font style="vertical-align: inherit;">现在为了速度，经常有p2p 的软件提供大容量档案的传输，但以鸟哥这个老人家来说，可能FTP 传送资料还是比较有保障... 在CentOS 7.x 的环境下，达成FTP 的预设伺服器软件主要是vsftpd 这一支喔！</font></font></p>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">详细的FTP 协定我们在伺服器篇再来谈，这里只是简单的利用vsftpd 这个软体与FTP 的协定来讲解SELinux 的问题与错误克服而已。</font><font style="vertical-align: inherit;">不过既然要使用到FTP 协定，一些简单的知识还是得要存在才好！</font><font style="vertical-align: inherit;">否则等一下我们没有办法了解为啥要这么做！</font><font style="vertical-align: inherit;">首先，你得要知道，用户端需要使用『FTP 帐号登入FTP 伺服器』才行！</font><font style="vertical-align: inherit;">而有一个称为『匿名(anonymous) 』的帐号可以登入系统！</font><font style="vertical-align: inherit;">但是这个匿名的帐号登入后，只能存取某一个特定的目录，而无法脱离该目录～！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">详细的FTP 协定我们在伺服器篇再来谈，这里只是简单的利用vsftpd 这个软件与FTP 的协定来讲解SELinux 的问题与错误克服而已。</font><font style="vertical-align: inherit;">不过既然要使用到FTP 协定，一些简单的知识还是得要存在才好！</font><font style="vertical-align: inherit;">否则等一下我们没有办法了解为啥要这么做！</font><font style="vertical-align: inherit;">首先，你得要知道，用户端需要使用『FTP 帐号登入FTP 伺服器』才行！</font><font style="vertical-align: inherit;">而有一个称为『匿名(anonymous) 』的帐号可以登入系统！</font><font style="vertical-align: inherit;">但是这个匿名的帐号登入后，只能存取某一个特定的目录，而无法脱离该目录～！</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在vsftpd 中，一般用户与匿名者的家目录说明如下：</font></font></p>
 
@@ -2321,7 +2321,7 @@ setroubleshoot-server-3.2.17-3.el7.x86_64</font></font><font></font>
 [root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">echo "myftp123" | passwd --stdin ftptest</font></font></span>
 </pre></td></tr></tbody></table>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接下来当然就是安装vsftpd 这只伺服器软体，同时启动这只服务，另外，我们也希望未来开机都能够启动这只服务！</font><font style="vertical-align: inherit;">因此需要这样做(鸟哥假设你的CentOS 7.x 的原版光碟已经挂载于/mnt 了喔！)：</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接下来当然就是安装vsftpd 这只伺服器软件，同时启动这只服务，另外，我们也希望未来开机都能够启动这只服务！</font><font style="vertical-align: inherit;">因此需要这样做(鸟哥假设你的CentOS 7.x 的原版光碟已经挂载于/mnt 了喔！)：</font></font></p>
 
 <table class="term"><tbody><tr><td class="term"><pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">yum install /mnt/Packages/vsftpd-3*</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
 [root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">systemctl start vsftpd</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
@@ -2388,7 +2388,7 @@ curl: (78) RETR response: 550</font></font><font></font>
 		<a id="ftp_home"></a>
 		<ul class="toplist"><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无法从家目录下载档案的问题分析与解决</font></font></li></ul>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们前面建立了ftptest 帐号，那如何使用文字界面来登入呢？</font><font style="vertical-align: inherit;">就使用如下的方式来处理。</font><font style="vertical-align: inherit;">同时请注意，因为文字型的FTP 用户端软体， 预设会将用户丢到根目录而不是家目录，因此，你的URL 可能需要修订一下如下！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们前面建立了ftptest 帐号，那如何使用文字界面来登入呢？</font><font style="vertical-align: inherit;">就使用如下的方式来处理。</font><font style="vertical-align: inherit;">同时请注意，因为文字型的FTP 用户端软件， 预设会将用户丢到根目录而不是家目录，因此，你的URL 可能需要修订一下如下！</font></font></p>
 
 <table class="term"><tbody><tr><td class="term"><pre><span class="term_hd"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"># 0.为了让curl这个文字浏览器可以传输资料，我们先建立一些资料在ftptest家目录</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 [root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">echo "testing" &gt; ~ftptest/test.txt</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
@@ -2619,7 +2619,7 @@ test</font></font><font></font>
 		<a id="ftp_port"></a>
 		<ul class="toplist"><li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无法变更FTP 连线埠口问题分析与解决</font></font></li></ul>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在某些情况下，可能你的伺服器软体需要开放在非正规的埠口，举例来说，如果因为某些政策问题，导致FTP 启动的正常的21 号埠口无法使用， 因此你想要启用在555 号埠口时，该如何处理呢？</font><font style="vertical-align: inherit;">基本上，既然SELinux 的主体程序大多是被受限的网路服务，没道理不限制放行的埠口啊！</font><font style="vertical-align: inherit;">所以，很可能会出问题～那就得要想想办法才行！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在某些情况下，可能你的伺服器软件需要开放在非正规的埠口，举例来说，如果因为某些政策问题，导致FTP 启动的正常的21 号埠口无法使用， 因此你想要启用在555 号埠口时，该如何处理呢？</font><font style="vertical-align: inherit;">基本上，既然SELinux 的主体程序大多是被受限的网路服务，没道理不限制放行的埠口啊！</font><font style="vertical-align: inherit;">所以，很可能会出问题～那就得要想想办法才行！</font></font></p>
 
 <table class="term"><tbody><tr><td class="term"><pre><span class="term_hd"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"># 1.先处理vsftpd的设定档，加入换port的参数才行！</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 [root@study ~]# </font></font><span class="term_command"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">vim /etc/vsftpd/vsftpd.conf </font></font></span>

@@ -378,7 +378,7 @@ lrwxrwxrwx. 1 root root 17 5月4 17:52 runlevel4.target -&gt; multi-user.target<
 <tr>
 	<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.socket</font></font></td>
 	<td><p style="margin-top: 0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内部程序资料交换的插槽服务(socket unit)：主要是IPC (Inter-process communication) 的传输讯息插槽档(socket file) 功能。</font><font style="vertical-align: inherit;">这种类型的服务通常在监控讯息传递的插槽档，当有透过此插槽档传递讯息来说要连结服务时，就依据当时的状态将该用户的要求传送到对应的daemon， 若daemon 尚未启动，则启动该daemon 后再传送用户的要求。</font></font></p>
-	<p style="margin-bottom: 0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用socket 类型的服务一般是比较不会被用到的服务，因此在开机时通常会稍微延迟启动的时间 (因为比较没有这么常用嘛！)。</font><font style="vertical-align: inherit;">一般用于本机服务比较多，例如我们的图形界面很多的软体都是透过socket 来进行本机程序资料交换的行为。</font><font style="vertical-align: inherit;">(这与早期的xinetd 这个super daemon 有部份的相似喔！)</font></font></p></td>
+	<p style="margin-bottom: 0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用socket 类型的服务一般是比较不会被用到的服务，因此在开机时通常会稍微延迟启动的时间 (因为比较没有这么常用嘛！)。</font><font style="vertical-align: inherit;">一般用于本机服务比较多，例如我们的图形界面很多的软件都是透过socket 来进行本机程序资料交换的行为。</font><font style="vertical-align: inherit;">(这与早期的xinetd 这个super daemon 有部份的相似喔！)</font></font></p></td>
 </tr>
 <tr>
 	<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.target</font></font></td>
@@ -848,7 +848,7 @@ graphical.target</font></font><font></font><font style="vertical-align: inherit;
 
 		<ul>
 		<li><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/usr/lib/systemd/system/</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-			使用CentOS官方提供的软体安装后，预设的启动脚本设定档都放在这里，这里的资料尽量不要修改～要修改时，请到/etc/systemd/system底下修改较佳！</font></font></li>
+			使用CentOS官方提供的软件安装后，预设的启动脚本设定档都放在这里，这里的资料尽量不要修改～要修改时，请到/etc/systemd/system底下修改较佳！</font></font></li>
 		<li style="margin-top: 10px"><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/run/systemd/system/</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
 			系统执行过程中所产生的服务脚本，这些脚本的优先序要比/usr/lib/systemd/system/高！</font></font></li>
 		<li style="margin-top: 10px"><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/etc/systemd/system/</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
@@ -906,7 +906,7 @@ Pass --all to see loaded but inactive sockets, too.</font></font><font></font>
 	<div style="text-align:center; margin: 0 auto 0 auto; "><img src="images/port_daemon.gif" alt="port 与daemon 的对应" title="port 与daemon 的对应" style="border: 0px solid black; padding: 10px "></div>
 	<div style="text-align: center;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">图17.2.1、port 与daemon 的对应</font></font></div>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">事实上，为了统一整个网际网路的埠号对应服务的功能，好让所有的主机都能够使用相同的机制来提供服务与要求服务， 所以就有了『通讯协定』这玩意儿。</font><font style="vertical-align: inherit;">也就是说，有些约定俗成的服务都放置在同一个埠号上面啦！</font><font style="vertical-align: inherit;">举例来说， 网址列上面的http 会让浏览器向WWW 伺服器的80 埠号进行连线的要求！</font><font style="vertical-align: inherit;">而WWW 伺服器也会将httpd 这个软体启动在port 80， 这样两者才能够达成连线的！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">事实上，为了统一整个网际网路的埠号对应服务的功能，好让所有的主机都能够使用相同的机制来提供服务与要求服务， 所以就有了『通讯协定』这玩意儿。</font><font style="vertical-align: inherit;">也就是说，有些约定俗成的服务都放置在同一个埠号上面啦！</font><font style="vertical-align: inherit;">举例来说， 网址列上面的http 会让浏览器向WWW 伺服器的80 埠号进行连线的要求！</font><font style="vertical-align: inherit;">而WWW 伺服器也会将httpd 这个软件启动在port 80， 这样两者才能够达成连线的！</font></font></p>
 
 		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嗯！</font><font style="vertical-align: inherit;">那么想一想，系统上面有没有什么设定可以让服务与埠号对应在一起呢？</font><font style="vertical-align: inherit;">那就是/etc/services 啦！</font></font></p>
 
@@ -986,7 +986,7 @@ tcp6 0 0 ::1:25 :::* LISTEN 2387/master</font></font><font></font>
 	<div class="block2"><div class="gototop"><a href="#top"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Top</font></font></a></div>
 	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">17.3.1 systemctl 设定档相关目录简介</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在我们知道服务的管理是透过systemd，而systemd 的设定档大部分放置于/usr/lib/systemd/system/ 目录内。</font><font style="vertical-align: inherit;">但是Red Hat 官方文件指出， 该目录的档案主要是原本软体所提供的设定，建议不要修改！</font><font style="vertical-align: inherit;">而要修改的位置应该放置于/etc/systemd/system/ 目录内。</font><font style="vertical-align: inherit;">举例来说，如果你想要额外修改vsftpd.service 的话， 他们建议要放置到哪些地方呢？</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在我们知道服务的管理是透过systemd，而systemd 的设定档大部分放置于/usr/lib/systemd/system/ 目录内。</font><font style="vertical-align: inherit;">但是Red Hat 官方文件指出， 该目录的档案主要是原本软件所提供的设定，建议不要修改！</font><font style="vertical-align: inherit;">而要修改的位置应该放置于/etc/systemd/system/ 目录内。</font><font style="vertical-align: inherit;">举例来说，如果你想要额外修改vsftpd.service 的话， 他们建议要放置到哪些地方呢？</font></font></p>
 
 		<ul>
 		<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/usr/lib/systemd/system/ </font></font><span class="text_import2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">vsftpd.service</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：官方释出的预设设定档；</font></font></li>
@@ -1614,17 +1614,17 @@ NextElapseUSecRealtime=45y 7month 1w 6d 10h 30min</font></font><font></font>
 <div class="block1">
 <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">17.5 CentOS 7.x 预设启动的服务简易说明</font></font></h2>
 
-		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">随着Linux 上面软体支援性越来越多，加上自由软体蓬勃的发展，我们可以在Linux 上面用的daemons 真的越来越多了。</font><font style="vertical-align: inherit;">所以，想要写完所有的daemons 介绍几乎是不可能的，因此，鸟哥这里仅介绍几个很常见的daemons 而已， 更多的资讯呢，就得要麻烦你自己使用systemctl list-unit-files --type=service 去查询啰！</font><font style="vertical-align: inherit;">底下的建议主要是针对Linux 单机伺服器的角色来说明的，不是桌上型的环境喔！</font></font></p>
+		<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">随着Linux 上面软件支援性越来越多，加上自由软件蓬勃的发展，我们可以在Linux 上面用的daemons 真的越来越多了。</font><font style="vertical-align: inherit;">所以，想要写完所有的daemons 介绍几乎是不可能的，因此，鸟哥这里仅介绍几个很常见的daemons 而已， 更多的资讯呢，就得要麻烦你自己使用systemctl list-unit-files --type=service 去查询啰！</font><font style="vertical-align: inherit;">底下的建议主要是针对Linux 单机伺服器的角色来说明的，不是桌上型的环境喔！</font></font></p>
 
 <table class="news" style="width: 95%">
 <tbody><tr class="theader"><td colspan="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CentOS 7.x 预设启动的服务内容</font></font></td></tr>
 <tr class="theader"><td style="width: 120px"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">服务名称</font></font></td><td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能简介</font></font></td></tr>
 <tr>
 	<td class="tcenter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">abrtd</font></font></td>
-	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(系统)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> abrtd服务可以提供使用者一些方式，让使用者可以针对不同的应用软体去设计错误登录的机制，当软体产生问题时，使用者就可以根据abrtd的登录档来进行错误克服的行为。</font><font style="vertical-align: inherit;">还有其他的abrt-xxx.service均是使用这个服务来加强应用程式debug任务的。</font></font></td></tr>
+	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(系统)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> abrtd服务可以提供使用者一些方式，让使用者可以针对不同的应用软件去设计错误登录的机制，当软件产生问题时，使用者就可以根据abrtd的登录档来进行错误克服的行为。</font><font style="vertical-align: inherit;">还有其他的abrt-xxx.service均是使用这个服务来加强应用程式debug任务的。</font></font></td></tr>
 <tr>
 	<td class="tcenter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">accounts-daemon </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(可关闭)</font></font></td>
-	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(系统)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用accountsservice计画所提供的一系列D-Bus界面来进行使用者帐号资讯的查询。</font><font style="vertical-align: inherit;">基本上是与useradd, usermod, userdel等软体有关。</font></font></td></tr>
+	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(系统)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用accountsservice计画所提供的一系列D-Bus界面来进行使用者帐号资讯的查询。</font><font style="vertical-align: inherit;">基本上是与useradd, usermod, userdel等软件有关。</font></font></td></tr>
 <tr>
 	<td class="tcenter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">alsa-X </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(可关闭)</font></font></td>
 	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(系统)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开头为alsa的服务有不少，这些服务大部分都与音效有关！</font><font style="vertical-align: inherit;">一般来说，伺服器且不开图形界面的话，这些服务可以关闭！</font></font></td></tr>
@@ -1750,7 +1750,7 @@ NextElapseUSecRealtime=45y 7month 1w 6d 10h 30min</font></font><font></font>
 	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(网路)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为档案传输伺服器(FTP)的服务。</font></font></td></tr>
 <tr>
 	<td class="tcenter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sshd</font></font></td>
-	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(网路)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这个是远端连线伺服器的软体功能，这个通讯协定比telnet好的地方在于sshd在传送资料时可以进行加密喔！</font><font style="vertical-align: inherit;">这个服务不要关闭他啦！</font></font></td></tr>
+	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(网路)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这个是远端连线伺服器的软件功能，这个通讯协定比telnet好的地方在于sshd在传送资料时可以进行加密喔！</font><font style="vertical-align: inherit;">这个服务不要关闭他啦！</font></font></td></tr>
 <tr>
 	<td class="tcenter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">rpcbind</font></font></td>
 	<td><span style="font-weight: bolder"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(网路)</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">达成RPC协定的重要服务！</font><font style="vertical-align: inherit;">包括NFS, NIS等等都需要这东西的协助！</font></font></td></tr>
@@ -1879,7 +1879,7 @@ tcp6 0 0 ::: </font></font><span class="term_write"><font style="vertical-align:
 
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你能否找出来，启动port 3306 这个埠口的服务为何？
 	</font></font><div class="blockex"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-		透过搜寻/etc/services 内容，得到port 3306 为mysql 所启动的埠口喔！</font><font style="vertical-align: inherit;">查询google， 可得到mysql 为一种网路资料库系统软体。
+		透过搜寻/etc/services 内容，得到port 3306 为mysql 所启动的埠口喔！</font><font style="vertical-align: inherit;">查询google， 可得到mysql 为一种网路资料库系统软件。
 	</font></font></div></li>
 
 	<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你可以透过哪些指令查询到目前系统预设开机会启动的服务？
